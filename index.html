@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="swfobject.js"></script> <!-- Подробнее о swfobject.js можно почитать тут -->
+    <script src="http://vk.com/js/api/xd_connection.js?2"></script> <!-- Подробнее тут -->
+    <script>
+        VK.init(function(){
+            //указываем id flash-объекта
+            var flashId = 'fl';
+            //указываем параметры приложения
+            var params = {wmode:'window', quality:'high', scale:'noscale', salign:'tl',
+                          flashvars:location.search.substring(1), allowscriptaccess:'always',
+                          allowfullscreen:'true', allownetworking:'all'};
+            //вставляем приложение (подробнее тут)
+            swfobject.embedSWF('fl.swf', flashId, '627', '590', '11',
+                               null, null, params, {id:flashId, name:flashId},
+                               function(){document.getElementById(flashId).style.visibility = 'visible';});
+        });
+    </script>
+    <style>
+        html, body {overflow:hidden; margin:0}
+        #fl {visibility:hidden}
+    </style>
+</head>
+<body>
+    <div id="fl">
+        <!-- Если нет Flash Player'а нужной версии -->
+        <p align="center">Для просмотра приложения необходимо скачать новую версию <a href="http://get.adobe.com/ru/flashplayer/" target="_blank">Adobe Flash Player</a></p>
+    </div>
+</body>
+</html>
